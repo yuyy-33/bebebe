@@ -1,23 +1,29 @@
 # import math
+import random
 # def calu_area_of_circle(radius):
 #     return math.pi* radius **2
 
 from utils.t1 import calu_area_of_circle
 # import datetime
 from utils.t2 import print_current_time
-import random
+# import random
+from utils.t2 import creat_radom_number
+from utils.t2 import check_cwd,random_choice
 
-def creat_radom_number():
-    return random.randint(1,6)
+def calc_time_different():
+    import time
+    start_time =time.perf_counter()
+    for i in range(1000):
+        random_number =creat_radom_number()
+        print(f"random number (die roll):{random_number}")
+    end_time =time.perf_counter()
+    time_different=end_time - start_time
+    print(f"time taken to roll the die 1000 times:{time_different:.6f} seconds")
+    return end_time-start_time
 
 def main():
-    print_current_time()
-    for _ in range(10):
-        random_number=creat_radom_number()
-        print(f"random number (die roll) :{random_number}")
-    # radius = 5
-    # area = calu_area_of_circle(radius)
-    # print(f"The area of the circle with radius {radius} is:{area}")
+    calc_time_different()
+    
 
 if __name__=='__main__':
     main()
