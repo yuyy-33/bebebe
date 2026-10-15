@@ -8,6 +8,17 @@ def random_choice(my_list):
     return random.choice(my_list)
 
 
+def calc_time_different():
+    import time
+    start_time =time.perf_counter()
+    for i in range(1000):
+        random_number =creat_radom_number()
+        print(f"random number (die roll):{random_number}")
+    end_time =time.perf_counter()
+    time_different=end_time - start_time
+    print(f"time taken to roll the die 1000 times:{time_different:.6f} seconds")
+    return end_time-start_time
+
 def check_cwd():
     import os
     cwd = os.getcwd()
