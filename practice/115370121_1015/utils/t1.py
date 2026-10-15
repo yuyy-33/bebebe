@@ -1,6 +1,10 @@
 ###
+import math
 
 print("t1,hello world")
+
+def calu_area_of_circle(radius):
+    return math.pi* radius **2
 
 def calu_sum(a,b):
     return a+b
