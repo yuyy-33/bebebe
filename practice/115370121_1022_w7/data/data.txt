@@ -1,0 +1,4 @@
+name	phone	city
+Tien	0912345678	Taipei
+Marry	0988833311	Tainan
+John	0911223344	Taichung

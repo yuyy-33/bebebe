@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1080" viewBox="0 0 1300 1080">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#263238" />
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", sans-serif; fill: #17252a; }
+      .title { font-size: 28px; font-weight: 700; }
+      .label { font-size: 19px; text-anchor: middle; dominant-baseline: middle; }
+      .small { font-size: 17px; }
+      .line { fill: none; stroke: #263238; stroke-width: 3; marker-end: url(#arrow); }
+      .merge { fill: none; stroke: #263238; stroke-width: 3; }
+      .oval { fill: #d9f0e5; stroke: #277451; stroke-width: 3; }
+      .decision { fill: #fff0c2; stroke: #a36b00; stroke-width: 3; }
+      .process { fill: #e5efff; stroke: #4169a1; stroke-width: 3; }
+    </style>
+  </defs>
+  <rect width="1300" height="1080" fill="#ffffff" />
+  <text class="title" x="650" y="35" text-anchor="middle">calc_bill(kwh) 流程圖</text>
+
+  <ellipse class="oval" cx="600" cy="85" rx="150" ry="42" />
+  <text class="label" x="600" y="85">開始：calc_bill(kwh)</text>
+  <path class="line" d="M600 127 V145" />
+
+  <polygon class="decision" points="600,145 735,205 600,265 465,205" />
+  <text class="label" x="600" y="205">kwh &lt;= 120？</text>
+  <text class="small" x="752" y="188">是</text>
+  <path class="line" d="M735 205 H800" />
+  <rect class="process" x="800" y="165" width="420" height="80" rx="4" />
+  <text class="label" x="1010" y="205">bill = kwh * 1.63</text>
+  <text class="small" x="612" y="287">否</text>
+  <path class="line" d="M600 265 V305" />
+
+  <polygon class="decision" points="600,305 735,365 600,425 465,365" />
+  <text class="label" x="600" y="365">kwh &lt;= 330？</text>
+  <text class="small" x="752" y="348">是</text>
+  <path class="line" d="M735 365 H800" />
+  <rect class="process" x="800" y="325" width="420" height="80" rx="4" />
+  <text class="label" x="1010" y="365">bill = 120*1.63 + (kwh-120)*2.38</text>
+  <text class="small" x="612" y="447">否</text>
+  <path class="line" d="M600 425 V465" />
+
+  <polygon class="decision" points="600,465 735,525 600,585 465,525" />
+  <text class="label" x="600" y="525">kwh &lt;= 500？</text>
+  <text class="small" x="752" y="508">是</text>
+  <path class="line" d="M735 525 H800" />
+  <rect class="process" x="800" y="485" width="420" height="80" rx="4" />
+  <text class="small" x="1010" y="514" text-anchor="middle">bill = 120*1.63 + 210*2.38</text>
+  <text class="small" x="1010" y="540" text-anchor="middle">+ (kwh-330)*3.52</text>
+  <text class="small" x="612" y="610">否</text>
+  <path class="line" d="M600 585 V675 H800" />
+  <rect class="process" x="800" y="635" width="420" height="80" rx="4" />
+  <text class="small" x="1010" y="664" text-anchor="middle">bill = 120*1.63 + 210*2.38 + 170*3.52</text>
+  <text class="small" x="1010" y="690" text-anchor="middle">+ (kwh-500)*4.80</text>
+
+  <path class="merge" d="M1220 205 H1260 V835 H600" />
+  <path class="merge" d="M1220 365 H1260" />
+  <path class="merge" d="M1220 525 H1260" />
+  <path class="merge" d="M1220 675 H1260" />
+  <path class="line" d="M600 835 V870" />
+  <ellipse class="oval" cx="600" cy="930" rx="190" ry="48" />
+  <text class="label" x="600" y="930">return bill</text>
+</svg>
