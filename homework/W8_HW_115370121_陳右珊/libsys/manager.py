@@ -22,6 +22,8 @@ class Library:
         with open(path, "r", encoding="utf-8") as file:
             next(file, None)
             for line in file:
+                if not line.strip():
+                    continue
                 try:
                     book_id, title, author, category, year = Book.parse_line(line)
                 except ValueError:
@@ -41,6 +43,8 @@ class Library:
         with open(path, "r", encoding="utf-8") as file:
             next(file, None)
             for line in file:
+                if not line.strip():
+                    continue
                 fields = [field.strip() for field in line.rstrip("\n").split(",")]
                 if len(fields) != 4:
                     self.loan_format_errors += 1
@@ -85,11 +89,18 @@ class Library:
             return None
 
         original_borrower = book.borrower
+        if original_borrower is None or reader != original_borrower:
+            return "未借出"
+
         succeeded, result = book.return_book(loan_date)
         if not succeeded:
             return result
 
-        self.reader_loans[original_borrower] -= 1
+        remaining = self.reader_loans.get(original_borrower, 0) - 1
+        if remaining <= 0:
+            self.reader_loans.pop(original_borrower, None)
+        else:
+            self.reader_loans[original_borrower] = remaining
         if result > 0:
             self.late_returns += 1
         return None
