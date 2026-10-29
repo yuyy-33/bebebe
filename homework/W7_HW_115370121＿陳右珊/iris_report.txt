@@ -1,0 +1,14 @@
+各品種數量
+setosa: 50
+versicolor: 50
+virginica: 50
+
+各等級數量
+Small: 50
+Medium: 54
+Large: 46
+
+Large 且 virginica 的朵數: 44
+sepal_len 最大值: 7.9
+sepal_len 最小值: 5.7
+sepal_len 平均值: 6.69
