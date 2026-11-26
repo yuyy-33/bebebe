@@ -1,0 +1,226 @@
+{
+  "cleaning": {
+    "rows_before": 302,
+    "rows_after": 300,
+    "missing_before": 10,
+    "missing_after": 0,
+    "missing_after_by_column": {
+      "customer_id": 0,
+      "region": 0,
+      "age": 0,
+      "income": 0,
+      "monthly_spend": 0,
+      "visits": 0,
+      "tenure": 0
+    },
+    "actions": [
+      "重複 customer_id：保留第一筆，刪除重複列",
+      "年齡範圍：18～100，超出值先改為缺值",
+      "年收入範圍：0～500 萬，超出值先改為缺值",
+      "月消費範圍：0～100 千元，超出值先改為缺值",
+      "月來店次數範圍：0～30 次，超出值先改為缺值",
+      "會員年資範圍：0～50 年，超出值先改為缺值",
+      "數值欄缺值：每欄各自以清理後的中位數補值",
+      "缺失地區：補成「未知」"
+    ]
+  },
+  "descriptive_spread_largest": "income",
+  "descriptive_stats": {
+    "age": {
+      "mean": 42.257,
+      "std": 15.004,
+      "min": 19.0,
+      "median": 40.0,
+      "max": 76.0
+    },
+    "income": {
+      "mean": 75.687,
+      "std": 39.979,
+      "min": 20.0,
+      "median": 62.6,
+      "max": 203.3
+    },
+    "monthly_spend": {
+      "mean": 13.835,
+      "std": 9.226,
+      "min": 1.8,
+      "median": 10.7,
+      "max": 40.6
+    },
+    "visits": {
+      "mean": 7.023,
+      "std": 3.414,
+      "min": 0.0,
+      "median": 7.0,
+      "max": 16.0
+    },
+    "tenure": {
+      "mean": 6.663,
+      "std": 4.433,
+      "min": 0.1,
+      "median": 6.7,
+      "max": 21.2
+    }
+  },
+  "regional": {
+    "中部": {
+      "人數": 78.0,
+      "age": 42.0,
+      "income": 75.447,
+      "monthly_spend": 14.485,
+      "visits": 7.103,
+      "tenure": 6.809
+    },
+    "北部": {
+      "人數": 114.0,
+      "age": 40.904,
+      "income": 73.695,
+      "monthly_spend": 13.132,
+      "visits": 7.325,
+      "tenure": 6.386
+    },
+    "南部": {
+      "人數": 75.0,
+      "age": 43.32,
+      "income": 81.984,
+      "monthly_spend": 15.001,
+      "visits": 6.747,
+      "tenure": 6.821
+    },
+    "未知": {
+      "人數": 2.0,
+      "age": 32.5,
+      "income": 51.9,
+      "monthly_spend": 10.5,
+      "visits": 6.0,
+      "tenure": 5.45
+    },
+    "東部": {
+      "人數": 31.0,
+      "age": 45.935,
+      "income": 69.913,
+      "monthly_spend": 12.177,
+      "visits": 6.452,
+      "tenure": 7.013
+    }
+  },
+  "correlation": {
+    "age": {
+      "age": 1.0,
+      "income": 0.037,
+      "monthly_spend": -0.06,
+      "visits": -0.814,
+      "tenure": 0.741
+    },
+    "income": {
+      "age": 0.037,
+      "income": 1.0,
+      "monthly_spend": 0.909,
+      "visits": -0.174,
+      "tenure": -0.018
+    },
+    "monthly_spend": {
+      "age": -0.06,
+      "income": 0.909,
+      "monthly_spend": 1.0,
+      "visits": -0.073,
+      "tenure": -0.148
+    },
+    "visits": {
+      "age": -0.814,
+      "income": -0.174,
+      "monthly_spend": -0.073,
+      "visits": 1.0,
+      "tenure": -0.564
+    },
+    "tenure": {
+      "age": 0.741,
+      "income": -0.018,
+      "monthly_spend": -0.148,
+      "visits": -0.564,
+      "tenure": 1.0
+    }
+  },
+  "selected_k": 4,
+  "evaluations": [
+    {
+      "k": 2,
+      "inertia": 899.935,
+      "silhouette": 0.45
+    },
+    {
+      "k": 3,
+      "inertia": 440.497,
+      "silhouette": 0.547
+    },
+    {
+      "k": 4,
+      "inertia": 213.916,
+      "silhouette": 0.583
+    },
+    {
+      "k": 5,
+      "inertia": 188.779,
+      "silhouette": 0.525
+    },
+    {
+      "k": 6,
+      "inertia": 168.201,
+      "silhouette": 0.443
+    },
+    {
+      "k": 7,
+      "inertia": 156.811,
+      "silhouette": 0.337
+    },
+    {
+      "k": 8,
+      "inertia": 142.08,
+      "silhouette": 0.284
+    },
+    {
+      "k": 9,
+      "inertia": 134.299,
+      "silhouette": 0.283
+    },
+    {
+      "k": 10,
+      "inertia": 126.236,
+      "silhouette": 0.266
+    }
+  ],
+  "cluster_profiles": {
+    "0": {
+      "人數": 60.0,
+      "age": 43.867,
+      "income": 144.482,
+      "monthly_spend": 29.938,
+      "visits": 5.25,
+      "tenure": 4.995
+    },
+    "1": {
+      "人數": 85.0,
+      "age": 25.612,
+      "income": 42.189,
+      "monthly_spend": 7.611,
+      "visits": 10.341,
+      "tenure": 1.707
+    },
+    "2": {
+      "人數": 65.0,
+      "age": 66.492,
+      "income": 47.005,
+      "monthly_spend": 5.632,
+      "visits": 2.415,
+      "tenure": 12.029
+    },
+    "3": {
+      "人數": 90.0,
+      "age": 39.4,
+      "income": 82.174,
+      "monthly_spend": 14.901,
+      "visits": 8.4,
+      "tenure": 8.581
+    }
+  }
+}
